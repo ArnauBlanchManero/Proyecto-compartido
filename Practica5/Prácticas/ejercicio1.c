@@ -8,8 +8,8 @@ float ingreso_datos(float datos, int num, char dia[10]){
 	return datos;
 }
 
-float temperatura_promedio(){:
-	int acumulación = 1;
+float temperatura_promedio(float tiempo[]){
+	int acumulación = 0;
 	for ( i = tiempo[0]; i < tiempo[7] ; i++); {
 		acumulación += tiempo[i];
 	
