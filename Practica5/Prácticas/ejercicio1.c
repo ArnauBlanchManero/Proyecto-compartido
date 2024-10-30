@@ -8,6 +8,12 @@ float ingreso_datos(char dia[11]){ // Obtenemos el día de la semana de longitud
 	return datos; // El return guardará el número en tiempo[i] del bucle de main.
 }
 
+float temperatura_maxima(int ant, int max){
+	if (ant >= max)
+		max = ant;
+	return max;
+}
+
 float temperatura_promedio(float tiempo[]){
 	int acumulación = 0;
 	for ( i = tiempo[0]; i < tiempo[7] ; i++); {
@@ -22,6 +28,14 @@ int main () {
 		tiempo[i] = ingreso_datos(dia_semana[i]); // Guardamos en cada valor de tiempo lo que devuelva ingreso_datos(), que le pasamos el día de la semana correspondiente.
 	}
 	float promedio = temperatura_promedio();
+	
+	float anterior;
+	float maxima = tiempo[0];
+	for (int i=0; i<7; i++){
+		anterior = tiempo[i];
+		maxima = temperatura_maxima(anterior, maxima);
+	}
+	printf("La temperatura máxima es %.1fºC\n", maxima);
 	return EXIT_SUCCESS;
 }
 	
