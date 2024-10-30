@@ -15,12 +15,12 @@ int main () {
 		tiempo[i] = ingreso_datos(dia_semana[i]); // Guardamos en cada valor de tiempo lo que devuelva ingreso_datos(), que le pasamos el día de la semana correspondiente.
 	}
 	
-	int acumulación = 0; // Declaramos el acumulador que se encarga de acumular la suma de las temperaturas introducidas por el usuario
+	int acumulación = 0; // Declaramos el acumulador que se encarg de acumular la suma de las temperaturas introducidas por el usuario
 	for ( int i = 0 ; i < 7 ; i++); { // Usamos i para realizar un bucle desde el valor 0 hasta el valor 7 incrementado de uno en uno esto nos servira para almacenar de manera consecutiva el valor de tiempo
 		acumulación += tiempo[i]; // El valor de acumulacion se encarga de acumular los valores de tiempo desde el 0 hasta el 7 introducidos por el usuario
-		int prom = acumulación / 7; // El valor de prom se encarga de almacenar el valor final de la suma de todos los tiempos y lo divide entre 7 para realizar el promedio
+	}				 // El valor de prom se encarga de almacenar el valor final de la suma de todos los tiempos y lo divide entre 7 para realizar el promedio
+	int prom = acumulación / 7;
 	printf("El promedio es:\n",prom) // Se imprime el valor del prom
-	}
 	return EXIT_SUCCESS;
 }
 	
