@@ -12,11 +12,11 @@ float temperatura_promedio(float tiempo[]){
 	int acumulación = 0;
 	for ( i = tiempo[0]; i < tiempo[7] ; i++); {
 		acumulación += tiempo[i];
-	
+	}
 }
 
 int main () {
-	float tiempo[6]; // Declaramos el array teimpo donde guardaremos el tiempo que ha hecho cada día.
+	float tiempo[6]; // Declaramos el array tiempo donde guardaremos el tiempo que ha hecho cada día.
 	char dia_semana[7][11]={"lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"}; // Declaramos un array que contenga los días de la semana (que a su vez también son arrays de caracteres).
 	for (int i=0; i<7; i++){ // Vamos a hacer un bucle para pedir la temperatura de cada día. Este bucle se reperirá 7 veces.
 		tiempo[i] = ingreso_datos(dia_semana[i]); // Guardamos en cada valor de tiempo lo que devuelva ingreso_datos(), que le pasamos el día de la semana correspondiente.
