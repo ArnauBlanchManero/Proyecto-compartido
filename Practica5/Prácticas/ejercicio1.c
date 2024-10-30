@@ -7,7 +7,10 @@ float ingreso_datos(){
 	scanf("%f",&tiempo[0]);
 }
 
-float temperatura_promedio(){
+float temperatura_promedio(){:
+	int acumulación = 1;
+	for ( i = tiempo[0]; i < tiempo[7] ; i++); {
+		acumulación += tiempo[i];
 	
 }
 
