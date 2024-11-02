@@ -8,10 +8,16 @@ float ingreso_datos(char dia[11]){ // Obtenemos el día de la semana de longitud
 	return datos; // El return guardará el número en tiempo[i] del bucle de main.
 }
 
-float temperatura_maxima(int ant, int max){
-	if (ant >= max)
-		max = ant;
+float temperatura_maxima(float temp, float max){ // Para saber la temperatura máxima, 
+	if (temp >= max)                     // necesitamos comparar la temperatra de cada día y 
+		max = temp;                  // guardar en max el valor que sea mayor del que teníamos guardado.
 	return max;
+}
+
+float temperatura_minima(float temp, float min){ // Para saber la temperatura mínima, 
+	if (temp <= min)                     // necesitamos comparar la temperatra de cada día y 
+		min = temp;                  // guardar en min el valor que sea menor del que teníamos guardado.
+	return min;
 }
 
 int main () {
@@ -21,20 +27,40 @@ int main () {
 		tiempo[i] = ingreso_datos(dia_semana[i]); // Guardamos en cada valor de tiempo lo que devuelva ingreso_datos(), que le pasamos el día de la semana correspondiente.
 	}
 	
-	float anterior;
-	float maxima = tiempo[0];
-	for (int i=0; i<7; i++){
-		anterior = tiempo[i];
-		maxima = temperatura_maxima(anterior, maxima);
-	}
-	printf("La temperatura máxima es %.1fºC\n", maxima);
-	
-	float acumulación = 0; // Declaramos el acumulador que se encarga de acumular la suma de las temperaturas introducidas por el usuario
-	for ( int i = 0 ; i < 7 ; i++) { // Usamos i para realizar un bucle desde el valor 0 hasta el valor 7 incrementado de uno en uno esto nos servira para almacenar de manera consecutiva el valor de tiempo
-	acumulación += tiempo[i]; // El valor de acumulacion se encarga de acumular los valores de tiempo desde el 0 hasta el 7 introducidos por el usuario
-	}				 // El valor de prom se encarga de almacenar el valor final de la suma de todos los tiempos y lo divide entre 7 para realizar el promedio
+	float acumulación = 0; // Declaramos el acumulador que se encarga de acumular la suma de las temperaturas introducidas por el usuario.
+	for ( int i = 0 ; i < 7 ; i++) { // Usamos i para realizar un bucle desde el valor 0 hasta el valor 7 incrementado de uno en uno esto nos servira para almacenar de manera consecutiva el valor de tiempo.
+	acumulación += tiempo[i]; // El valor de acumulacion se encarga de acumular los valores de tiempo desde el 0 hasta el 7 introducidos por el usuario.
+	}				 // El valor de prom se encarga de almacenar el valor final de la suma de todos los tiempos y lo divide entre 7 para realizar el promedio.
 	float prom = acumulación / 7;
-	printf("El promedio es:%f\n",prom); // Se imprime el valor del prom
+	printf("Temperatura promedio de la semana: %.1fºC\n",prom); // Se imprime el valor del prom
+	
+	float temperatura; // Declaramos temperatura para guardar la temperatura de cada día en cada vuelta del bucle.
+	float maxima = tiempo[0]; // Inicializamos la vriale en la temperatura del lunes.
+	for (int i=0; i<7; i++){
+		temperatura = tiempo[i];
+		maxima = temperatura_maxima(temperatura, maxima);
+	}
+	printf("Temperatura máxima: %.1fºC ", maxima);
+	for (int i=0; i<7; i++){
+		if (maxima == tiempo[i]){
+			printf("el día %s\n", dia_semana[i]);
+			break;
+		}
+	}
+	// Para la temperatura mínima es igual
+	float minima = tiempo[0]; // Inicializamos la vriale en la temperatura del lunes.
+	for (int i=0; i<7; i++){
+		temperatura = tiempo[i];
+		minima = temperatura_minima(temperatura, minima);
+	}
+	printf("Temperatura mínima: %.1fºC ", minima);
+	for (int i=0; i<7; i++){
+		if (minima == tiempo[i]){
+			printf("el día %s\n", dia_semana[i]);
+			break;
+		}
+	}
+	
 	return EXIT_SUCCESS;
 }
 	
