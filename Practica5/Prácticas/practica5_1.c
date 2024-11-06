@@ -61,6 +61,20 @@ int main () {
 		}
 	}
 	
+	// Contar cuantos días son superior al promedio
+	int contador = 0;
+	for (int i=0; i<7; i++){
+		if(tiempo[i]>prom)
+			contador++;
+	}
+	printf("Número de días con temperaturas superiores la promedio: %d\n", contador);
+
+	// Días por debajo del promedio
+	printf("Días con temperaturas por debajo del promedio:\n");
+	for (int i=0; i<7; i++){
+		if(tiempo[i]<prom)
+			printf("%s: %.1lfºC\n", dia_semana[i], tiempo[i]);
+	}
 	return EXIT_SUCCESS;
 }
 	
