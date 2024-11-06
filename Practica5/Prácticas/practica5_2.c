@@ -32,5 +32,27 @@ int main(){
 		}
 	}
 	printf("Número de estudiantes aprobados: %d\nNúmero de estudiantes suspensos: %d\n", aprobados, suspensos);
+// 4. Nota máxima y nota mínima
+	double min = nota[0]; // Inicializamos en la nota del primer estudiante.
+	double max = nota[0];
+	int posicion_max = 0;
+	int posicion_min = 0;
+	for (int i = 0; i < cantidad_estudiantes; i++){ // Este bucle se repetirá tantas veces como estudiantes haya.
+		if (nota[i] >= max){ // Para guardar la nota máxima y su posición
+			max = nota[i];
+			posicion_max = i;
+		}
+		if (nota[i] <= min){ // Para hayar la nota mínima y su posición
+			min = nota[i];
+			posicion_min = i;
+		}
+	}
+	printf("Nota máxima: %.1lf (Estudiante en la posición %d)\nNota mínima: %.1lf (Estudiante en la posición %d)\n", max, posicion_max, min, posicion_min);
+// 5. Listado de notas por encima del promedio
+	for (int i = 0; i < cantidad_estudiantes; i++){ // Este bucle se repetirá tantas veces como estudiantes haya.
+		if (nota[i] > promedio){
+			printf("Estudiante en la posición %d: %.1lf\n", i, nota[i]);
+		}
+	}
 	return 0;
 }
