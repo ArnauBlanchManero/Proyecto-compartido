@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <string.h>
 struct articulo {
-	char nombre[21];
+	char nombre[100];
 	int cantidad;
 };
 
@@ -39,5 +39,21 @@ int main(){
 		printf("Producto %d: %s - %d unidades\n", i, producto[i].nombre, producto[i].cantidad);
 	}
 
+// 3. Rebastecimiento de productos
+	
+	char respuesta[4];
+	char rebastecer_producto[100];
+	int i = 0;
+	printf("¿Desea rebastecer algún producto? (sí/no): ");
+	scanf(" %s", respuesta);
+	if (strcmp(respuesta, "sí")){
+		printf("Ingrese el nombre del producto: ");
+		scanf(" %s", rebastecer_producto);
+		while(strcmp(producto[i].nombre, rebastecer_producto)){
+			i++;
+		}
+		printf("Cantidad a añadir: ");
+		scanf("%d", &producto[i].cantidad);
+	}
 	return 0;
 }
