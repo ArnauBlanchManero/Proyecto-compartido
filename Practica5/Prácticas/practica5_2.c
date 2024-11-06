@@ -49,6 +49,7 @@ int main(){
 	}
 	printf("Nota máxima: %.1lf (Estudiante en la posición %d)\nNota mínima: %.1lf (Estudiante en la posición %d)\n", max, posicion_max, min, posicion_min);
 // 5. Listado de notas por encima del promedio
+	printf("Notas por encima del promedio: \n");
 	for (int i = 0; i < cantidad_estudiantes; i++){ // Este bucle se repetirá tantas veces como estudiantes haya.
 		if (nota[i] > promedio){
 			printf("Estudiante en la posición %d: %.1lf\n", i, nota[i]);
