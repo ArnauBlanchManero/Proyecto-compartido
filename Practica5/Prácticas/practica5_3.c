@@ -93,6 +93,7 @@ int main(){
 	for (int i = 0; i < n_productos; i++){
 		if(producto[i].cantidad == meta){
 			printf("El primer día en el que se alcanzó la meta es %s\n", producto[i].nombre);
+            break;
 		}else if(i == n_productos-1){
 			printf("Ningún producto ha alcanzado la meta");
 		}

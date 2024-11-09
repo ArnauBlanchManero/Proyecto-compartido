@@ -42,7 +42,7 @@ int main () {
 	}
 	printf("Temperatura máxima: %.1fºC ", maxima);
 	for (int i=0; i<7; i++){
-		if (maxima == tiempo[i]){
+		if (maxima == tiempo[i]){ // Para buscar el día de la semana que tiene la temperatura máxima
 			printf("el día %s\n", dia_semana[i]);
 			break;
 		}
@@ -55,7 +55,7 @@ int main () {
 	}
 	printf("Temperatura mínima: %.1fºC ", minima);
 	for (int i=0; i<7; i++){
-		if (minima == tiempo[i]){
+		if (minima == tiempo[i]){ // Para buscar el día de la semana que tiene la temperatura mínima
 			printf("el día %s\n", dia_semana[i]);
 			break;
 		}
@@ -69,7 +69,7 @@ int main () {
 	}
 	printf("Número de días con temperaturas superiores la promedio: %d\n", contador);
 
-	// Días por debajo del promedio
+	// Imprimir los días por debajo del promedio
 	printf("Días con temperaturas por debajo del promedio:\n");
 	for (int i=0; i<7; i++){
 		if(tiempo[i]<prom)

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define NOTA_APROVADO 5.00
+#define NOTA_APROBADO 5.00
 
 int main(){
 // 1. Ingreso de notas
@@ -25,7 +25,7 @@ int main(){
 	int aprobados = 0;
 	int suspensos = 0;
 	for (int i = 0; i < cantidad_estudiantes; i++){ // Este bucle se repetirá tantas veces como estudiantes haya.
-		if (nota[i] >= NOTA_APROVADO){
+		if (nota[i] >= NOTA_APROBADO){
 			aprobados++;
 		} else {
 			suspensos++;
