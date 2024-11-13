@@ -39,5 +39,14 @@ int main(){
     // En Europa, en la primera sede, en la categoría de ordenadores, el modelo 5, en el lote 8, hay 100 unidades:
     inventario[europa][primera][ordenadores][5][8] = 100;
     printf("Unidades en Europa, primera sede, categoría ordenadores, modelo 5 y lote 8: %d\n", inventario[europa][primera][ordenadores][5][8]);
+	// En Europa, en la segunda sede, en la categoría televisores, en el molelo 0, en el lote 10, hay 200 unidades:
+	inventario[europa][segunda][televisores][0][10] = 200;
+	printf("Unidades en Europa, segunda sede, categoría televisores, en el modelo 0, en el lote 10: %d\n", inventario[europa][segunda][televisores][0][10]);
+	printf("Qué cantidad quieres aumentar para estas unidades? ");
+	int aumentar = 0;
+	scanf("%d", &aumentar);
+	inventario[europa][segunda][televisores][0][10] += aumentar;
+	printf("Unidades en Europa, segunda sede, categoría televisores, en el modelo 0, en el lote 10: %d\n", inventario[europa][segunda][televisores][0][10]);
+	
     return 0;
 }

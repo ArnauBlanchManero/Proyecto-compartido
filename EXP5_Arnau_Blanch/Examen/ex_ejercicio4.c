@@ -38,7 +38,7 @@ int main(){
 		printf("Producto %d: %s - %d unidades\n", i, producto[i].nombre, producto[i].cantidad);
 	}
 
-// 3. Rebastecimiento de productos
+// 3. Reabastecimiento de productos
 	
 	char respuesta[4];
 	char reabastecer_producto[100];
@@ -91,12 +91,46 @@ int main(){
 	printf("Cuál es tu meta de stock diario: ");
 	scanf("%d", &meta);
 	for (int i = 0; i < n_productos; i++){
-		if(producto[i].cantidad == meta){
+		if(producto[i].cantidad >= meta){
 			printf("El primer día en el que se alcanzó la meta es %s\n", producto[i].nombre);
             break;
 		}else if(i == n_productos-1){
-			printf("Ningún producto ha alcanzado la meta");
+			printf("Ningún producto ha alcanzado la meta\n");
 		}
+	}
+// Examen. Retirar unidades de algún producto
+	
+	char deseo[4]; // He tenido que cambiar los nombres de las variables
+	char retirar_producto[100];
+	int cantidad = 0;
+	int k;
+	do {
+		printf("¿Desea retirar unidades de algún producto? (sí/no): ");
+		scanf(" %s", deseo); 
+		if (strcmp(deseo, "sí") == 0 || strcmp(deseo, "si") == 0){ // Puede reabastecer productos sólo si escribe "si" o "sí"
+			printf("Ingrese el nombre del producto: ");
+			scanf(" %s", retirar_producto);
+			k = 0;
+			for (k = 0; k < n_productos; k++){
+				if (strcmp(producto[k].nombre, retirar_producto) == 0){ // Para buscar el producto
+					printf("Cantidad a retirar: ");
+					scanf("%d", &cantidad);
+						if (producto[k].cantidad - cantidad >= 0){
+							producto[k].cantidad -= cantidad; // Se restará
+						} else {
+							printf("ERROR. No se pueden retirar tantas unidades");
+						}
+					break;
+				}
+			}
+		}
+	}while (strcmp(deseo, "no") != 0); // Sólo sale del bucle si pone la palabra "no"
+
+// 2. Mostrar inventario completo
+
+	printf("Inventario Completo:\n");
+	for (int i = 0; i < n_productos; i++){ // Se repite tantas veces como número de productos haya
+		printf("Producto %d: %s - %d unidades\n", i, producto[i].nombre, producto[i].cantidad);
 	}
 
 	return 0;

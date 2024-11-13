@@ -21,10 +21,10 @@ float temperatura_minima(float temp, float min){ // Para saber la temperatura m�
 }
 
 int main () {
-	float tiempo[6]; // Declaramos el array tiempo donde guardaremos el tiempo que ha hecho cada día.
+	float tiempo[7] = {23, 12.5, 201, 24, 15, 20, -25.2}; // No voy a pedir las tenperaturas
 	char dia_semana[7][11]={"lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"}; // Declaramos un array que contenga los días de la semana (que a su vez también son arrays de caracteres).
 	for (int i=0; i<7; i++){ // Vamos a hacer un bucle para pedir la temperatura de cada día. Este bucle se reperirá 7 veces.
-		tiempo[i] = ingreso_datos(dia_semana[i]); // Guardamos en cada valor de tiempo lo que devuelva ingreso_datos(), que le pasamos el día de la semana correspondiente.
+		printf("Temperatura del %s: %f\n", dia_semana[i], tiempo[i]); // Antes pedia al usuario que pusiera los datos que quisera con la funcion ingreso_datos()
 	}
 	
 	float acumulación = 0; // Declaramos el acumulador que se encarga de acumular la suma de las temperaturas introducidas por el usuario.
@@ -75,6 +75,32 @@ int main () {
 		if(tiempo[i]<prom)
 			printf("%s: %.1lfºC\n", dia_semana[i], tiempo[i]);
 	}
+	
+	printf("Parte del examen sin los datos atípicos:\n");
+	char atipico[7];
+	int dias_consi = 0;
+	for (int i = 0; i <= 6; i++){
+		if(tiempo[i] < -10 || tiempo[i] > 45){
+			atipico[i] = 'e'; // Eliminada
+		} else {
+			atipico[i] = 'c'; // Considerada
+			dias_consi ++;
+		}
+		printf("La temperatura del %s ha sido %c\n", dia_semana[i], atipico[i]);
+	}
+	printf("Las nuevas temperaturas sin las temperaturas eliminadas: \n");
+	for(int i = 0; i <= 6; i++){
+		if(atipico[i] == 'c'){ // Sólo imprime las consideradas
+			printf("Temperatura del %s: %.1lf\n", dia_semana[i], tiempo[i]);
+		}
+	}
+	printf("El nuevo promedio: ");
+	double prom_considerada = 0;
+	for(int i = 0; i <= dias_consi; i++){
+		if(atipico[i] == 'c')
+			prom_considerada += tiempo[i];
+	}
+	printf("%lf\n", prom_considerada/dias_consi);
 	return EXIT_SUCCESS;
 }
 	
